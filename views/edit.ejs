@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Page</title>
+    <% include bs %> 
+    <% include include/header3 %> 
+    <style>
+        .container {
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+        }
+        p {
+            padding-left: 10px;
+            margin: 0;
+            float: left;
+        }
+        a{
+            padding-left: 10px;
+        }
+        .clear {
+            clear: both;
+        }
+        .margin {
+            margin: 0;
+            margin-bottom: 16px;
+        }
+        @media only screen and (max-width: 600px){
+            .container {
+                font-size: 15px;
+            }
+            p {
+                margin: 0;
+                padding-left: 5px;
+            }
+            /* .unmargin {
+                margin: 0;
+                padding: 0;
+            } */
+            a {
+            padding-left: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <% if(locals.oil) { %>
+            <!-- <p>Date</p><p>E20</p><p>91</p><p>95</p>
+            <div class="clear"></div> -->
+            <hr class="margin">
+            <% Object.values(oil).forEach(function(oil) {%>
+                <p class="unmargin"><%= oil['Date'] %> </p>
+                <p><%= oil['Disel'] %></p>
+                <p><%= oil['Bensin Gasohol E20'] %></p>
+                <p><%= oil['Gasohol 91'] %></p>
+                <p><%= oil['Gasohol 95'] %></p>
+                <div class="clear"></div>
+                <a href="/edit/<%= oil['Date'] %>">Edit</a><br>  
+                <hr>
+            <% }); %> 
+        <% } %> 
+    </div>
+</body>
+</html>

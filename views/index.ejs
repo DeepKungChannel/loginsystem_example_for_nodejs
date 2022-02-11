@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <% include bs %> 
+    <style>
+        .container {
+            margin-left: 5px;
+        }
+        .head {
+            font-size: 20px;
+        }
+
+        .head p{
+            float: left;
+            margin: 0;
+        }
+
+        a[href="/logout"] {
+            color: black;
+            text-decoration: none;
+            margin: 0;
+            font-size: 20px;
+            padding-left: 3px;
+        }
+        
+        .clear {
+            clear: both;
+        }
+
+        #width {
+            width: 100%;
+        }
+        @media only screen and (max-width: 600px) {
+            .container {
+                margin-left: 0;
+                padding-left: 0;
+            }
+            .table {
+                font-size: 13px;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <% include include/header %>
+    <div class="container">
+        <div class="clear"></div>
+        <div class="oil-content">
+            <% if(locals.oil) { %> 
+            <table class="table" id='width'>
+                <thead>
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Disel</th>
+                        <th scope="col">Bensin Gasohol E20</th>
+                        <th scope="col">Gasohol 91</th>
+                        <th scope="col">Gasohol 95</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% Object.values(oil).forEach(function(oil) {%>
+                        <tr>
+                            <td><%= oil['Date'] %> </td> 
+                            <td><%= oil['Disel'] %> </td>
+                            <td><%= oil['Bensin Gasohol E20'] %> </td>
+                            <td><%= oil['Gasohol 91'] %> </td>
+                            <td><%= oil['Gasohol 95'] %> </td>
+                        </tr> 
+                    <% })  %> 
+                </tbody>
+            </table>
+        <% } %> 
+        </div>
+        <div class="messages">
+            <div class="clear"></div>
+            <p>
+                This is a test login system run by node js
+            </p>
+            <a href="/logout">logout here</a>
+        </div>
+    </div>
+</body>
+</html>

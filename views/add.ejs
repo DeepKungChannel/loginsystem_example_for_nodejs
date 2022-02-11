@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <% include bs %> 
+    <style>
+      .messages {
+        font-size: 20px;
+      }
+    </style>
+</head>
+<body>
+    <% include include/header2 %>
+    <div class="container">
+        <br>
+        <% if(locals.messages) { %>
+            <div class="messages">
+                -<%= messages %>
+            </div><br>
+        <% } %> 
+        <form method="post" action="/add">
+            <div class="form-group">
+              <label for="exampleInputEmail1" class="label123">Date</label>
+              <input type="date" class="form-control" name="Date" class="inp1" placeholder="yy/mm/dd" required>
+            </div>
+            <div class="clear"></div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="Disel" placeholder="Disel" required>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="E20" placeholder="Bensin Gasohol E20" required>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="G91" placeholder="Gasohol 91" required>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="G95" placeholder="Gasohol 95" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add</button>
+          </form>
+    </div> 
+</body>
+</html>
